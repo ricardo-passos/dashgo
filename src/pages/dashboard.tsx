@@ -53,9 +53,9 @@ const options: ApexOptions = {
     gradient: {
       shade: 'dark',
       opacityFrom: 0.7,
-      opacityTo: 0.3
-    }
-  }
+      opacityTo: 0.3,
+    },
+  },
 }
 
 const series = [
@@ -74,7 +74,7 @@ export default function Dashboard() {
         <Sidebar />
 
         <SimpleGrid flex='1' gap='4' minChildWidth='320px' align='flex-start'>
-          <Box p='8' bg='gray.800' borderRadius='8px'>
+          <Box p={['4', '8']} bg='gray.800' borderRadius='8px'>
             <Text fontSize='lg' mb='4'>
               Inscritos da semana
             </Text>
@@ -85,7 +85,7 @@ export default function Dashboard() {
               height='160px'
             />
           </Box>
-          <Box p='8' bg='gray.800' borderRadius='8px'>
+          <Box p={['4', '8']} bg='gray.800' borderRadius='8px'>
             <Text fontSize='lg' mb='4'>
               Taxa de abertura
             </Text>
