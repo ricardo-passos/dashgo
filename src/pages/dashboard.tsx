@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic'
 
 // components
 import { Header } from '../components/Header'
-import { Sidebar } from '../components/Sidebar'
+import { Sidebar } from '../components/SideBar'
 
 // types
 import type { ApexOptions } from 'apexcharts'
