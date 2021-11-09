@@ -1,5 +1,8 @@
 import { ChakraProvider } from '@chakra-ui/react'
 
+//  contexts
+import { SidebarDrawerProvider } from '../contexts/SidebarDrawerContext'
+
 // styles
 import { theme } from '../styles/theme'
 
@@ -9,7 +12,9 @@ import type { AppProps } from 'next/app'
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider resetCSS theme={theme}>
-      <Component {...pageProps} />
+      <SidebarDrawerProvider>
+        <Component {...pageProps} />
+      </SidebarDrawerProvider>
     </ChakraProvider>
   )
 }
