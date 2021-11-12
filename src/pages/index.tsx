@@ -26,7 +26,8 @@ export default function SignIn() {
     resolver: yupResolver(signInFormSchema),
   })
 
-  const handleSignin: SubmitHandler<SignInFormData> = (values) => {
+  const handleSignin: SubmitHandler<SignInFormData> = (values, event) => {
+    event.preventDefault()
     router.push('/dashboard')
   }
 
