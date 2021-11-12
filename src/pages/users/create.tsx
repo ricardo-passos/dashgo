@@ -9,6 +9,7 @@ import {
   HStack,
 } from '@chakra-ui/react'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup/dist/yup'
@@ -41,11 +42,16 @@ const createUserFormSchema = yup.object().shape({
 })
 
 export default function CreateUser() {
+  const router = useRouter()
+
   const { register, handleSubmit, formState } = useForm({
     resolver: yupResolver(createUserFormSchema),
   })
 
-  const onSubmit: SubmitHandler<CreateUserFormData> = (values) => {}
+  const onSubmit: SubmitHandler<CreateUserFormData> = (values, event) => {
+    event.preventDefault()
+    router.push('/users')
+  }
 
   return (
     <Box>
