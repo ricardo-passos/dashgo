@@ -10,3 +10,4 @@ This app was made to learn more about the [Chakra UI](https://chakra-ui.com/) co
 - [Next.js](https://nextjs.org/)
 - [Chakra UI](https://chakra-ui.com/)
 - [React Hook Form](https://react-hook-form.com/)
+- [React Query](https://react-query.tanstack.com/)
