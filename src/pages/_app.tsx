@@ -1,12 +1,13 @@
-import { ChakraProvider } from '@chakra-ui/react'
-import { QueryClient, QueryClientProvider } from 'react-query'
+import { ChakraProvider, Flex } from '@chakra-ui/react'
+import { QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
 
 //  contexts
 import { SidebarDrawerProvider } from '../contexts/SidebarDrawerContext'
+import { Header } from '../components/Header'
+import { Sidebar } from '../components/SideBar'
 
 // services
-import { makeServer } from '../services/mirage'
 import { queryClient } from '../services/queryClient'
 
 // styles
@@ -15,17 +16,18 @@ import { theme } from '../styles/theme'
 // types
 import type { AppProps } from 'next/app'
 
-if (process.env.NODE_ENV === 'development') {
-  makeServer()
-}
-
-
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={queryClient}>
       <ChakraProvider resetCSS theme={theme}>
         <SidebarDrawerProvider>
-          <Component {...pageProps} />
+          <Flex direction='column' h='100vh' p='20px'>
+            <Header />
+            <Flex h='min-content'>
+              <Sidebar />
+              <Component {...pageProps} />
+            </Flex>
+          </Flex>
         </SidebarDrawerProvider>
       </ChakraProvider>
       <ReactQueryDevtools />

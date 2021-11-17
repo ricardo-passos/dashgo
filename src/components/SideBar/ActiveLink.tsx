@@ -18,18 +18,8 @@ export function ActiveLink({
 }: Props) {
   const { asPath } = useRouter()
 
-  let isActive = false
-
-  if (shouldMatchExactHref && (asPath === rest.href || asPath === rest.as)) {
-    isActive = true
-  }
-
-  if (
-    !shouldMatchExactHref &&
-    (asPath.startsWith(String(rest.href)) || asPath.startsWith(String(rest.as)))
-  ) {
-    isActive = true
-  }
+  const isActive =
+    `/${asPath.split('/', 2).pop()}` === rest.href || asPath === rest.href
 
   return (
     <Link {...rest}>
