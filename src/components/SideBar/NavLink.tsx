@@ -1,7 +1,7 @@
 import { Link as ChakraLink, Icon, Text } from '@chakra-ui/react'
 
 // components
-import { ActiveLink } from '../ActiveLink'
+import { ActiveLink } from './ActiveLink'
 
 // types
 import type { ElementType } from 'react'

@@ -25,8 +25,6 @@ export function Header() {
       maxW='1480px'
       h='20'
       mx='auto'
-      mt='4'
-      px='6'
       align='center'
     >
       {!isWideVersion && (
@@ -36,7 +34,7 @@ export function Header() {
           fontSize='24'
           variant='unstyled'
           onClick={onOpen}
-          mg='2'
+          mr='2'
         ></IconButton>
       )}
       <Logo />

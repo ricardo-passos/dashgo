@@ -1,7 +1,14 @@
-import { ChakraProvider } from '@chakra-ui/react'
+import { ChakraProvider, Flex } from '@chakra-ui/react'
+import { QueryClientProvider } from 'react-query'
+import { ReactQueryDevtools } from 'react-query/devtools'
 
 //  contexts
 import { SidebarDrawerProvider } from '../contexts/SidebarDrawerContext'
+import { Header } from '../components/Header'
+import { Sidebar } from '../components/SideBar'
+
+// services
+import { queryClient } from '../services/queryClient'
 
 // styles
 import { theme } from '../styles/theme'
@@ -11,11 +18,20 @@ import type { AppProps } from 'next/app'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ChakraProvider resetCSS theme={theme}>
-      <SidebarDrawerProvider>
-        <Component {...pageProps} />
-      </SidebarDrawerProvider>
-    </ChakraProvider>
+    <QueryClientProvider client={queryClient}>
+      <ChakraProvider resetCSS theme={theme}>
+        <SidebarDrawerProvider>
+          <Flex direction='column' h='100vh' p='20px'>
+            <Header />
+            <Flex h='min-content'>
+              <Sidebar />
+              <Component {...pageProps} />
+            </Flex>
+          </Flex>
+        </SidebarDrawerProvider>
+      </ChakraProvider>
+      <ReactQueryDevtools />
+    </QueryClientProvider>
   )
 }
 
